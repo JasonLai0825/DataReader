@@ -1,8 +1,10 @@
 <?php
-$config = array(
-    /* settings of excel */
-    "Target_directory" => "W:\\ftp\Asadal\\20140715",
-    "Excel_fileName" => "雲端文創 Asadal 圖片資料",
-    "Excel_sheetNames" => array("倉儲"),
-    "Excel_usedRow" => array('A' => '檔案名稱', 'B' => '完整路徑')
+$db_configs = array(
+    // introduction of how to define a database config here.
+    'db' => array(
+        'DB_HOST' => 'define_db_host_here',
+        'DB_USER' => 'define_db_username_here',
+        'DB_PASS' => 'define_db_password_here',
+        'DB_NAME' => 'define_db_name_here'
+    ),
 );

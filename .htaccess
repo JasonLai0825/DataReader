@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+
+    # 確保請求路徑不是一個文檔名或目錄
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # 重定向所有請求到 index.php?url=PATHMA,E
+
+    RewriteRule ^(.*)$ index.php?url=$1 [PT, L]
+
+</IfModule>
