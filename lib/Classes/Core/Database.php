@@ -1,8 +1,9 @@
 <?php
 /**
  * Name: Class Database
- * Purpose: To connect with any mysql databases.
+ * Purpose: To connect with any mysql databases and execute basic CRUD database operation.
  * Comment:
+ *  1. Basic CRUD methods not finished yet.
  * 
  * Editor: Jason Lai
  * Edit Time: 2018/12/13
