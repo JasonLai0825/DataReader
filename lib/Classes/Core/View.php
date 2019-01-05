@@ -33,12 +33,12 @@ class View
      */
     public function render(){
         extract($this->variables);
-        $default_header = APP_PATH . 'Views/header.php';
-        $default_footer = APP_PATH . 'Views/footer.php';
+        $default_header = FRAME_PATH . 'Views/header.html';
+        $default_footer = FRAME_PATH . 'Views/footer.html';
 
         include($default_header);
         include($default_footer);
-        include(APP_PATH . 'Views/' . $this->controller . '/' . $this->action . '.php');
+        include(FRAME_PATH . 'Views/' . $this->action . '.html');
     }
 }
 ?>

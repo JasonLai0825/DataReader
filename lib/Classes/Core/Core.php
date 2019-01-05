@@ -19,6 +19,7 @@ class core
      * Execute core MVC settings of DAtaSolver project.
      */
     function run(){
+        spl_autoload_register(array($this, 'loadClass'));
         $this -> setREporting();
         $this -> unregisterGlobals();
         $this -> Route();
@@ -48,8 +49,8 @@ class core
         $dispatch = new $controller($this->controllerName, $this->actionName);
 
         // execite function when both controller and action exist
-        if((int)method_exists($controller, $action)){
-            call_user_func_array(array($dispatch, $this->actionName), $queryString);
+        if((int)method_exists($controller, $this->actionName)){
+            call_user_func_array(array($dispatch, $this->actionName), $this->queryString);
         }else{
             exit($controller . ' not found.');
         }
@@ -90,7 +91,21 @@ class core
      * @param string $className: class name.
      */
     static function loadClass($className){
-
+        $coreClass = FRAME_PATH . "Classes/Core/$className.php";
+        $class = FRAME_PATH . "Classes/$className.php";
+        $controller = FRAME_PATH . "Controllers/$className.php";
+        $model = FRAME_PATH . "Models/$className.php";
+        if(file_exists($coreClass)){
+            include_once $coreClass;
+        }else if(file_exists($class)){
+            include_once $class;
+        }else if(file_exists($controller)){
+            include_once $controller;
+        }else if(file_exists($model)){
+            include_once $model;
+        }else {
+            var_dump("File $className not found.");
+        }
     }
 }
 ?>
