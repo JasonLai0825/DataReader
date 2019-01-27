@@ -37,8 +37,8 @@ class View
         $default_footer = FRAME_PATH . 'Views/footer.html';
 
         include($default_header);
-        include($default_footer);
         include(FRAME_PATH . 'Views/' . $this->action . '.html');
+        include($default_footer);
     }
 }
 ?>
