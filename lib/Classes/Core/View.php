@@ -33,9 +33,11 @@ class View
      */
     public function render(){
         extract($this->variables);
+        $main_page = FRAME_PATH . 'Views/main.html';
         $default_header = FRAME_PATH . 'Views/header.html';
         $default_footer = FRAME_PATH . 'Views/footer.html';
 
+        include($main_page);
         include($default_header);
         include(FRAME_PATH . 'Views/' . $this->action . '.html');
         include($default_footer);
